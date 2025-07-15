@@ -11,16 +11,38 @@
 		</a>
 	</div>
 
+	<!--the container for this nav bar needs to be adjusted to be consistent in style regardless of the browser/screen size	-->
 	<nav>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
+			<li>
+				<a href="/">Costco Next</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
+			<li>
+				<a href="/">While Supplies Last</a>
+			</li>
+			<li>
+				<a href="/">Online-Only</a>
+			</li>
+			<li>
+				<a href="/">Treasure Hunt</a>
+			</li>
+			<li>
+				<a href="/">What's New</a>
+			</li>
+			<li>
+				<a href="/">Member Favorites</a>
+			</li>
+			<li>
+				<a href="/">Get Email Offers</a>
+			</li>
+			<li>
+				<a href="/">Customer Service</a>
+			</li>
+			<li>
+				<a href="/">US(dropdownlist)</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
 				<a href="/sverdle">Sverdle</a>
@@ -30,6 +52,7 @@
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
 	</nav>
+	<br />
 
 	<div class="corner">
 		<a href="https://github.com/sveltejs/kit">
@@ -37,6 +60,16 @@
 		</a>
 	</div>
 </header>
+<nav>
+	<p>Logo here</p>
+	<p>Search bar here</p>
+
+	<a href="/">Sign In/Register</a>
+
+	<a href="/">Orders & Returns</a>
+
+	Cart(with logo)
+</nav>
 
 <style>
 	header {

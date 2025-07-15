@@ -4,6 +4,7 @@
 </script>
 
 <div class="app">
+	<p>Current Deals are shown here on the header (clickable and will link to the item)</p>
 	<Header />
 
 	<main>
