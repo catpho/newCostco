@@ -4,7 +4,9 @@
 </script>
 
 <div class="app">
-	<p>Current Deals are shown here on the header (clickable and will link to the item)</p>
+	<p class="theme-duocolor">
+		Current Deals are shown here on the header (clickable and will link to the item)
+	</p>
 	<Header />
 
 	<main>
@@ -23,6 +25,11 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+	}
+
+	.theme-duocolor {
+		background-color: #005dab;
+		color: #ffffff;
 	}
 
 	main {

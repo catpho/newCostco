@@ -1,21 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
+	import logo from '$lib/images/Costco-Logo-Registered.svg';
 	import github from '$lib/images/github.svg';
+	import { Search } from 'flowbite-svelte';
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://svelte.dev/docs/kit">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
 	<!--the container for this nav bar needs to be adjusted to be consistent in style regardless of the browser/screen size	-->
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
+	<!--make sure that number of list items change when the screen is adjusted	-->
+	<nav class="top-nav">
 		<ul>
 			<li>
 				<a href="/">Costco Next</a>
@@ -44,72 +37,104 @@
 			<li>
 				<a href="/">US(dropdownlist)</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
-	<br />
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
 </header>
-<nav>
-	<p>Logo here</p>
-	<p>Search bar here</p>
+<nav class="main-nav">
+	<a class="costco-logo" href="https://www.costco.com/">
+		<img src={logo} alt="Costco Logo" />
+	</a>
+
+	<Search size="lg" clearable />
 
 	<a href="/">Sign In/Register</a>
 
 	<a href="/">Orders & Returns</a>
 
-	Cart(with logo)
+	<span>Cart(with logo)</span>
+</nav>
+<nav class="bottom-nav">
+	<ul>
+		<li>
+			<a href="/">Shop</a>
+		</li>
+		<li>
+			<a href="/">Grocery</a>
+		</li>
+		<li>
+			<a href="/">Same Day</a>
+		</li>
+		<li>
+			<a href="/">Savings</a>
+		</li>
+		<li>
+			<a href="/">Business Delivery</a>
+		</li>
+		<li>
+			<a href="/">Optical</a>
+		</li>
+		<li>
+			<a href="/">Pharmacy</a>
+		</li>
+		<li>
+			<a href="/">Services</a>
+		</li>
+		<li>
+			<a href="/">US(dropdownlist)</a>
+		</li>
+	</ul>
 </nav>
 
 <style>
 	header {
 		display: flex;
-		justify-content: space-between;
 	}
 
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
+	.costco-logo img {
+		width: 12rem;
+		height: 6rem;
 		object-fit: contain;
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		align-items: center;
+		gap: 1rem;
 	}
 
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
+	.top-nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		background: #eeeeee;
+		padding: 0;
 	}
 
-	path {
-		fill: var(--background);
+	.top-nav a {
+		color: #1566aa;
+	}
+
+	.bottom-nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		background: #005dab;
+		padding: 0;
+	}
+
+	.bottom-nav a {
+		color: white;
+	}
+
+	.main-nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		background: #eeeeee;
 	}
 
 	ul {
@@ -121,6 +146,7 @@
 		justify-content: center;
 		align-items: center;
 		list-style: none;
+		width: 100%;
 		background: var(--background);
 		background-size: contain;
 	}
