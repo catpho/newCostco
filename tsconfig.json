@@ -43,6 +43,9 @@
 		"./tests/**/*.ts",
 		"./tests/**/*.svelte"
 	],
+	"extends": [
+		"./.svelte-kit/tsconfig.json"
+	],
 	"exclude": [
 		"./node_modules/**",
 		"./.svelte-kit/[!ambient.d.ts]**",
