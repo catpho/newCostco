@@ -144,6 +144,7 @@
 	.top-nav a {
 		color: #1566aa;
 		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+		font-size: 16px;
 	}
 
 	.bottom-nav {

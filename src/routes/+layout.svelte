@@ -1,17 +1,16 @@
 <script lang="ts">
 	import Header from './Header.svelte';
 	import '../app.css';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <div class="app">
-	<p class="theme-duocolor">
+	<div class="theme-duocolor">
 		Current Deals are shown here on the header (clickable and will link to the item)
-	</p>
+	</div>
 	<Header />
 
-	<div
-		style="  background-color:#eeeeee; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); margin-bottom: 100px;"
-	>
+	<div style="  background-color:#eeeeee;margin-bottom:0.5px">
 		<div class="m-6 ml-8 flex items-start text-sm text-gray-800">
 			<!-- My Warehouse -->
 			<div>
@@ -39,23 +38,23 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>
-			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about SvelteKit
-		</p>
-	</footer>
+	<Footer />
 </div>
 
 <style>
 	.app {
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
 	}
 
 	.theme-duocolor {
 		background-color: #005dab;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		color: #ffffff;
+		padding: 4px;
+		font-size: larger;
 	}
 
 	main {
@@ -64,26 +63,8 @@
 		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
-
+		background-color: white;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
 	}
 </style>
