@@ -31,6 +31,7 @@
 					<span class="text-black">48201</span>
 				</div>
 			</div>
+			<div class="ml-auto">List  |  Buy Again</div>
 		</div>
 	</div>
 

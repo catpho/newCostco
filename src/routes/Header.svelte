@@ -26,7 +26,24 @@
 	</a>
 
 	<div class="flex-grow">
-		<Search placeholder="Search Costco" class="w-full" />
+		<div class="relative">
+			<input
+				type="text"
+				placeholder="Search Costco"
+				class="w-full  pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+			/>
+			
+			<button
+				type="button"
+				
+				class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-blue-500 focus:outline-none"
+			>
+				<svg class="transform scale-x-[-1] text-[#005eab]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+				<path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+				</svg>
+
+			</button>
+			</div>
 	</div>
 
 	<a href="/">Account</a>

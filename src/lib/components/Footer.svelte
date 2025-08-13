@@ -1,4 +1,5 @@
 <script>
+	
 	import { Search } from 'flowbite-svelte';
 	 let location = '';
   function search() {
@@ -73,39 +74,102 @@
 		<div>
 			<h1 class="text-[20px]">About Us</h1>
 			
-			<div class="flex mt-[8px] text-[15px] gap-2 ">
-				<div>Get Help</div>
-			
-			</div>
-				<div class="list-flex">Charitable Contributions </div>
+			<ul>
+				<li>Get to Know</li>
+				<li>Charitable Contributions</li>
+				<li>Company Information</li>
+				<li>Sustainability Commitment</li>
+				<li>Investor Relations</li>
+				<li>Careers</li>
+				<li>Kirkland Signature</li>
+				<li>Logo and Media Requests</li>
+				<li>The Costco Connections</li>
+				<li>Quick & Easy Recipe Videos</li>
+				<li>Costco Blog</li>
+				<li>Employee Site</li>
+				
+
+			</ul>
 				
 		</div>
 
 		<div>
 			<h2 class="text-[20px]">Membership</h2>
+			<ul>
+				<li>Membership Information</li>
+				<li>Join Now</li>
+				<li>Member Privileges</li>
+				<li>Executive Membership Terms</li>
+				<li>Refer a Friend</li>
+				<li>Sign In or Register</li>
+				<li>Credit Card</li></ul>
 
-		<div class="mt-[15px] w-[500px] relative">
-			</div>
+			<h2 class="text-[20px]">Vendors & Supplies</h2>
+			<ul>
+				<li>Vendor Inquiries</li>
+				<li>Supply Chain Disclosure</li>
+				<li>Ethics Hotline for Suppliers</li>
+				<li>Supplier Inclusion</li>
+				<li>Explore Our Brands</li>
+				</ul>
 		</div>
 
 		<div>
 			<h3 class="text-[20px]">Customer Service</h3>
-			<div class="mt-[15px] flex w-[500px]">
-				
-				</div>
-
-			
-		
+			<ul>
+				<li>Costco Customer Service</li>
+				<li>Costco Shop Card Balance</li>
+				<li>Order By Item Number</li>
+				<li>Concierge Tech Support & Warrenty</li>
+				<li>Volume Sales: Export & Domestic</li>
+				<li>Order Status</li>
+				<li>Preventing Fraud</li>
+				<li>Shipping</li>
+				<li>Rebates</li>
+				<li>Recalls & Product Notices</li>
+				<li>Returns and Exchanges</li>
+				<li>Returns Policy</li>
+				<li>Accessibility</li>
+			</ul>
 		</div>
 		<div>
 			<h4 class="text-[20px]">Locations & Services</h4>
-			<div class="mt-[15px] flex w-[500px]">
-				
-				</div>
+			<ul>
+				<li>Find a Warehouse</li>
+				<li>Locations Coming Soon</li>
+				<li>Hours and Holiday Closures</li>
+				<li>Gasoline</li>
+				<li>Hearing Aid Center</li>
+				<li>Optical</li>
+				<li>Special Events</li>
+				<li>CostcoGrocery</li>
+				<li>Grocery by Instacart</li>
+				<li>Product Collections</li>
+			</ul>
 		</div>
 		
 	</div>
 
+<div class="flex gap-3">
+	<p> Site Map </p>
+	<p> Terms and Conditions </p>
+	<p> Your Privacy Rights </p>
+	<p> CA Notice</p>
+	<p> CA Social Compliance</p>
+	<p> Cookie Settings</p>
+	<p class="flex"> <img alt="California Consumer Privacy Act (CCPA) Opt-Out Icon" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/bltf7d7f80fdcfa6466/64e3b60e51fd0d0ac6ee9582/privacy-options.svg" height="14" width="31" data-airgap-id="9">Your Privacy Choices</p>
+	<p> Consumer Health Data </p>
+	<p> Feedback</p>
+
+</div>
+<div class="icons-footer flex">
+	<img alt="Costco Facebook" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/blt68764b90bcb33698/64e3b60eafe0c5ed0ecee3c2/_social-facebook-32x32.svg" height="32" width="32" data-airgap-id="10">
+<img alt="Costco Pinterest" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/blt89ae75a2666fa53e/64e3b60e840f3212eb9a7862/_social-pinterest-32x32.svg" height="32" width="32" data-airgap-id="11">
+<img alt="Costco Instagram" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/blt8af6969b4b536c72/64e3b60e83e48de97f3b32c2/_social-instagram-32x32.svg" height="32" width="32" data-airgap-id="12">
+
+<img alt="Costco App" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/blt8c4d2e413e2cb617/64e3b60e88e161d1c0fce933/costco-app-icon-32x32.svg" height="32" width="32" data-airgap-id="13">
+</div>
+<p>©1998 - 2025 Costco Wholesale Corporation. All rights reserved.</p>
 
 </footer>
 
