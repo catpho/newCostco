@@ -7,11 +7,18 @@
 </script>
 
 <footer>
-	<div class="footer-top m-[20px]">
+	<div class="footer-top m-[20px] border-b border-[#b3b3b3] pb-8">
 		<div>
 			<h1 class="text-[20px]">Customer Service</h1>
 
-			<p class="mt-[10px]">Get Help</p>
+			<div class="flex mt-[8px] text-[15px] gap-2 ">
+			<svg class="text-[#005eab] " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+			<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+			</svg>
+
+			<div>
+				Get Help</div>
+				</div>
 		</div>
 
 		<div>
@@ -58,7 +65,48 @@
 			
 		
 		</div>
+		
 	</div>
+
+	
+	<div class="flex m-[20px] border-b border-[#b3b3b3] pb-8">
+		<div>
+			<h1 class="text-[20px]">About Us</h1>
+			
+			<div class="flex mt-[8px] text-[15px] gap-2 ">
+				<div>Get Help</div>
+			
+			</div>
+				<div class="list-flex">Charitable Contributions </div>
+				
+		</div>
+
+		<div>
+			<h2 class="text-[20px]">Membership</h2>
+
+		<div class="mt-[15px] w-[500px] relative">
+			</div>
+		</div>
+
+		<div>
+			<h3 class="text-[20px]">Customer Service</h3>
+			<div class="mt-[15px] flex w-[500px]">
+				
+				</div>
+
+			
+		
+		</div>
+		<div>
+			<h4 class="text-[20px]">Locations & Services</h4>
+			<div class="mt-[15px] flex w-[500px]">
+				
+				</div>
+		</div>
+		
+	</div>
+
+
 </footer>
 
 <style>
@@ -73,5 +121,10 @@
 	.footer-top {
 		display: flex;
 		gap: 25px;
+	}
+	.list-flex {
+  display: flex;        
+  margin-top: 4px;      
+  font-size: 15px;      
 	}
 </style>
