@@ -11,12 +11,12 @@
 	<Header />
 
 	<div style="  background-color:#eeeeee;margin-bottom:0.5px">
-		<div class="m-6 ml-8 flex items-start text-sm text-gray-800">
+		<div class="container flex items-start justify-between text-sm text-gray-800 py-4">
 			<!-- My Warehouse -->
 			<div>
 				<p class="text-xs text-gray-600">My Warehouse</p>
 				<div class="flex items-center gap-1 font-semibold">
-					<i class="fa-solid fa-location-dot text-gray-700"></i>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="presentation" focusable="false" aria-hidden="true" fill="none" class="mui-y3hfh1"><path fill="currentColor" fill-rule="evenodd" d="M18.778 9.966c0 1.382-.416 2.712-1.23 3.899l-5.265 6.997c-.125.14-.289.268-.502.025l-5.22-6.925-.057-.098A6.83 6.83 0 0 1 5.25 9.969c.017-3.706 3.056-6.719 6.773-6.719 3.725 0 6.755 3.012 6.755 6.716M12.023 22.25c.438 0 .87-.199 1.159-.521l5.422-7.205a7.96 7.96 0 0 0 1.424-4.558C20.028 5.573 16.437 2 12.023 2 7.62 2 4.02 5.572 4 9.973c.021 1.685.534 3.281 1.435 4.533l.003.005c.03.059.082.161.132.206l5.25 6.964c.3.362.739.569 1.203.569m-2.5-12.49a2.51 2.51 0 0 1 2.5-2.513c1.38 0 2.5 1.116 2.5 2.488a2.51 2.51 0 0 1-2.5 2.513 2.497 2.497 0 0 1-2.5-2.488m-1.25 0a3.75 3.75 0 0 0 3.75 3.738 3.76 3.76 0 0 0 3.75-3.763 3.75 3.75 0 0 0-3.75-3.738 3.76 3.76 0 0 0-3.75 3.763" clip-rule="evenodd"></path></svg>
 					<span class="text-black">Grand Rapids</span>
 				</div>
 				<p class="mt-1 text-xs text-gray-600">Executive Member hours start at 9AM</p>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 
-	<main>
+	<main class="container">
 		<slot />
 	</main>
 
@@ -56,6 +56,12 @@
 		color: #ffffff;
 		padding: 4px;
 		font-size: larger;
+	}
+	.container {
+		max-width: 1800px; /* or whatever matches your Footer/Header */
+		margin: 0 auto;
+		padding: 1 1rem; /* keeps spacing responsive */
+		box-sizing: border-box;
 	}
 
 	main {

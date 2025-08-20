@@ -8,7 +8,7 @@
 </script>
 
 <footer>
-	<div class="flex w-[1800px] mx-auto m-[20px] border-b border-[#b3b3b3] pb-8">
+	<div class="flex w-[1800px] mx-auto border-b border-[#b3b3b3] pb-8">
 		<div>
 			<h1 class="text-[20px]">Customer Service</h1>
 
@@ -139,7 +139,7 @@
 		
 	</div>
 
-	<div class="flex gap-3 my-2 justify-center ">
+	<div class="flex gap-16 my-2 justify-center ">
 	<p class="hover:underline cursor-pointer"> Site Map </p>
 	<p class="hover:underline cursor-pointer"> Terms and Conditions </p>
 	<p class="hover:underline cursor-pointer"> Your Privacy Rights </p>
@@ -152,7 +152,7 @@
 
 	</div>
 	
-	<div class="my-2 icons-footer">
+	<div class="my-4 icons-footer">
 	<img class="hover: cursor-pointer" alt="Costco Facebook" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/blt68764b90bcb33698/64e3b60eafe0c5ed0ecee3c2/_social-facebook-32x32.svg" height="32" width="32" data-airgap-id="10">
 	<img class="hover: cursor-pointer" alt="Costco Pinterest" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/blt89ae75a2666fa53e/64e3b60e840f3212eb9a7862/_social-pinterest-32x32.svg" height="32" width="32" data-airgap-id="11">
 	<img class="hover: cursor-pointer" alt="Costco Instagram" loading="lazy" src="https://azure-na-images.contentstack.com/v3/assets/blt79a1ca72a67c8924/blt8af6969b4b536c72/64e3b60e83e48de97f3b32c2/_social-instagram-32x32.svg" height="32" width="32" data-airgap-id="12">

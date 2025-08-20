@@ -3,12 +3,22 @@
 	import logo from '$lib/images/Costco-Logo-Registered.svg';
 
 	import { Search } from 'flowbite-svelte';
+
+		let isOpen = false;
+	const toggle = () => (isOpen = !isOpen);
+
+	const options = [
+		{ label: "United States", href: "/" },
+		{ label: "Canada", href: "/" },
+		{ label: "Mexico", href: "/" }
+	];
 </script>
 
 <header>
 	<!--the container for this nav bar needs to be adjusted to be consistent in style regardless of the browser/screen size	-->
 	<!--make sure that number of list items change when the screen is adjusted	-->
-	<nav class="top-nav">
+	<div class="top-nav ">
+	<nav class="max-w-[1800px] w-full">
 		<a href="/">Costco Next</a>
 		<a href="/">While Supplies Last</a>
 		<a href="/">Online-Only</a>
@@ -17,10 +27,38 @@
 		<a href="/">Member Favorites</a>
 		<a href="/">Get Email Offers</a>
 		<a href="/">Customer Service</a>
-		<a href="/">US (dropdownlist)</a>
+		
+		<button
+			on:click={toggle}
+			class="flex items-center gap-1 px-2 py-1 rounded hover:bg-gray-100"
+		>
+			<span>US</span>
+			<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+			</svg>
+		</button>
+
+		{#if isOpen}
+			<div
+				class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
+			>
+				{#each options as option}
+					<a
+						href={option.href}
+						class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+					>
+						{option.label}
+					</a>
+				{/each}
+			</div>
+		{/if}
+	
 	</nav>
+	</div>
+	
 </header>
-<nav class="main-nav p-2 pl-6 pr-6">
+<div class="main-nav p-2 ">
+<nav class="max-w-[1800px] w-full">
 	<a class="costco-logo" href="https://www.costco.com/">
 		<img src={logo} alt="Costco Logo" />
 	</a>
@@ -36,7 +74,7 @@
 			<button
 				type="button"
 				
-				class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-blue-500 focus:outline-none"
+				class="absolute inset-y-0 right-0 flex items-center pr-3 text-[#1566aa] hover:text-blue-500 focus:outline-none"
 			>
 				<svg class="transform scale-x-[-1] text-[#005eab]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
 				<path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
@@ -70,9 +108,10 @@
 		</svg>
 		Cart</a
 	>
-</nav>
-<nav class="bottom-nav">
-	<ul class="bottom-nav-list space-x-4">
+</nav></div>
+<div class="bottom-nav ">
+<nav class="max-w-[1800px] w-full ">
+	<ul class="bottom-nav-list space-x-4 justify-between">
 		<li>
 			<a href="/"
 				><svg
@@ -129,6 +168,7 @@
 		</li>
 	</ul>
 </nav>
+</div>
 
 <style>
 	header {
