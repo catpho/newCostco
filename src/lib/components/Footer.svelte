@@ -7,7 +7,7 @@
   }
 </script>
 
-<footer>
+<footer class="bg-[#ededed]">
 	<div class="flex w-[1800px] mx-auto border-b border-[#b3b3b3] pb-8">
 		<div>
 			<h1 class="text-[20px]">Customer Service</h1>

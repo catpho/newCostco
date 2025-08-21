@@ -4,13 +4,13 @@
 	import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<div class="app">
+<div class="app bg-[#ffffff]">
 	<div class="theme-duocolor">
 		Current Deals are shown here on the header (clickable and will link to the item)
 	</div>
 	<Header />
 
-	<div style="  background-color:#eeeeee;margin-bottom:0.5px">
+	<div class= "map" style="margin-bottom:0.5px">
 		<div class="container flex items-start justify-between text-sm text-gray-800 py-4">
 			<!-- My Warehouse -->
 			<div>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 
-	<main class="container">
+	<main class="container ">
 		<slot />
 	</main>
 
@@ -46,8 +46,12 @@
 	.app {
 		display: flex;
 		flex-direction: column;
+		min-height: 100vh;
 	}
 
+	.map{
+		background-color: #fafafa;
+	}
 	.theme-duocolor {
 		background-color: #005dab;
 		display: flex;
@@ -58,20 +62,20 @@
 		font-size: larger;
 	}
 	.container {
-		max-width: 1800px; /* or whatever matches your Footer/Header */
+		max-width: 1800px; 
 		margin: 0 auto;
-		padding: 1 1rem; /* keeps spacing responsive */
-		box-sizing: border-box;
+		padding: 1 1rem;
+		
 	}
 
 	main {
 		flex: 1;
 		display: flex;
+		overflow-y: auto;
 		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
 		background-color: white;
-		margin: 0 auto;
 		box-sizing: border-box;
 	}
 </style>
