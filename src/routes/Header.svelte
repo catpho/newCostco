@@ -134,37 +134,40 @@
 			>
 		</li>
 		<li>
-			<a href="/">Grocery</a>
+			<a href="https://www.costco.com/grocery-household.html">Grocery</a>
 		</li>
 		<li>
-			<a href="/">Same Day</a>
+			<a href="/">Bakery</a>
 		</li>
 		<li>
-			<a href="/">Savings</a>
+			<a href="https://sameday.costco.com/?utm_source=nav&zipcode=20170">Same Day</a>
 		</li>
 		<li>
-			<a href="/">Business Delivery</a>
+			<a href="https://www.costco.com/s?keyword=OFF&dept=All">Savings</a>
 		</li>
 		<li>
-			<a href="/">Optical</a>
+			<a href="https://www.costcobusinessdelivery.com/">Business Delivery</a>
 		</li>
 		<li>
-			<a href="/">Pharmacy</a>
+			<a href="https://www.costco.com/optical.html">Optical</a>
 		</li>
 		<li>
-			<a href="/">Services</a>
+			<a href="https://rx.costco.com/">Pharmacy</a>
 		</li>
 		<li>
-			<a href="/">Photo</a>
+			<a href="https://www.costco.com/services.html">Services</a>
 		</li>
 		<li>
-			<a href="/">Travel</a>
+			<a href="https://www.costco.com/photo.html">Photo</a>
 		</li>
 		<li>
-			<a href="/">Membership</a>
+			<a href="https://www.costcotravel.com/?utm_source=costco.com&utm_medium=TopNav&utm_campaign=mkt&utm_term=costcotravel.com&utm_content=20160621">Travel</a>
 		</li>
 		<li>
-			<a href="/">Locations</a>
+			<a href="https://www.costco.com/join-costco.html">Membership</a>
+		</li>
+		<li>
+			<a href="https://www.costco.com/warehouse-locations?langId=-1&storeId=10301&catalogId=10701">Locations</a>
 		</li>
 	</ul>
 </nav>
@@ -239,7 +242,6 @@
 		display: flex;
 		justify-content: left;
 		align-items: center;
-		margin-left: 25px;
 		list-style: none;
 		width: 100%;
 		background: var(--background);
