@@ -34,5 +34,11 @@
 	},
 	"dependencies": {
 		"flowbite-svelte": "^0.46.23"
-	}
+	},
+	
+  "resolutions": {
+    "svelte": "^4.0.0",
+    "@sveltejs/kit": "^2.0.0"
+  }
+
 }
