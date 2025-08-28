@@ -173,11 +173,7 @@
 		padding: 12px;
 	}
 
-	.footer-top {
-		display: flex;
-		justify-content: center;
-		gap: 25px;
-	}
+	
 	.list-flex {
 		font-size: 14px;      
 	}
