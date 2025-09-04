@@ -12,13 +12,15 @@
 		{ label: "Canada", href: "/" },
 		{ label: "Mexico", href: "/" }
 	];
+
+	let isBottomOpen = false; 
 </script>
 
 <header>
 	<!--the container for this nav bar needs to be adjusted to be consistent in style regardless of the browser/screen size	-->
 	<!--make sure that number of list items change when the screen is adjusted	-->
 	<div class="top-nav ">
-	<nav class="max-w-[1800px] w-full">
+	<nav class="max-w-[1800px] w-full hidden lg:flex">
 		<a href="/">Costco Next</a>
 		<a href="/">While Supplies Last</a>
 		<a href="/">Online-Only</a>
@@ -58,7 +60,7 @@
 	
 </header>
 <div class="main-nav p-2 ">
-<nav class="max-w-[1800px] w-full">
+<nav class="max-w-[1800px]  flex w-full">
 	<a class="costco-logo" href="https://www.costco.com/">
 		<img src={logo} alt="Costco Logo" />
 	</a>
@@ -83,7 +85,7 @@
 			</button>
 			</div>
 	</div>
-
+	<div class="hidden lg:flex">
 	<a href="/">Account</a>
 
 	<a href="/">Orders & Returns</a>
@@ -107,69 +109,58 @@
 			/>
 		</svg>
 		Cart</a
-	>
+	></div>
 </nav></div>
 <div class="bottom-nav ">
 <nav class="max-w-[1800px] w-full ">
-	<ul class="bottom-nav-list space-x-4 justify-between">
-		<li>
-			<a href="/"
-				><svg
-					class="h-6 w-6 text-gray-800 dark:text-white"
-					aria-hidden="true"
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					fill="none"
-					viewBox="0 0 24 24"
+		<ul class="flex items-center py-3 text-sm">
+			
+			<!-- Shop (always visible) -->
+			<li class="relative">
+				<button 
+					on:click={() => isBottomOpen = !isBottomOpen}
+					class="flex items-center gap-1 px-2 py-1 "
 				>
-					<path
-						stroke="currentColor"
-						stroke-linecap="round"
-						stroke-width="2"
-						d="M5 7h14M5 12h14M5 17h14"
-					/>
-				</svg>
-				Shop</a
-			>
-		</li>
-		<li>
-			<a href="https://www.costco.com/grocery-household.html">Grocery</a>
-		</li>
-		<li>
-			<a href="/">Bakery</a>
-		</li>
-		<li>
-			<a href="https://sameday.costco.com/?utm_source=nav&zipcode=20170">Same Day</a>
-		</li>
-		<li>
-			<a href="https://www.costco.com/s?keyword=OFF&dept=All">Savings</a>
-		</li>
-		<li>
-			<a href="https://www.costcobusinessdelivery.com/">Business Delivery</a>
-		</li>
-		<li>
-			<a href="https://www.costco.com/optical.html">Optical</a>
-		</li>
-		<li>
-			<a href="https://rx.costco.com/">Pharmacy</a>
-		</li>
-		<li>
-			<a href="https://www.costco.com/services.html">Services</a>
-		</li>
-		<li>
-			<a href="https://www.costco.com/photo.html">Photo</a>
-		</li>
-		<li>
-			<a href="https://www.costcotravel.com/?utm_source=costco.com&utm_medium=TopNav&utm_campaign=mkt&utm_term=costcotravel.com&utm_content=20160621">Travel</a>
-		</li>
-		<li>
-			<a href="https://www.costco.com/join-costco.html">Membership</a>
-		</li>
-		<li>
-			<a href="https://www.costco.com/warehouse-locations?langId=-1&storeId=10301&catalogId=10701">Locations</a>
-		</li>
-	</ul>
+					<svg class="h-6 w-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" > <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" /> </svg>
+					Shop
+					
+				</button>
+
+				<!-- Dropdown (only on mobile) -->
+				{#if isBottomOpen}
+					<div class="absolute left-0 mt-2 w-48 bg-white shadow-md z-50 md:hidden">
+						<a href="https://www.costco.com/grocery-household.html" class="block px-4 py-2 hover:bg-gray-100">Grocery</a>
+						<a href="/" class="block px-4 py-2 hover:bg-gray-100">Bakery</a>
+						<a href="https://sameday.costco.com/" class="block px-4 py-2 hover:bg-gray-100">Same Day</a>
+						<a href="https://www.costco.com/s?keyword=OFF&dept=All" class="block px-4 py-2 hover:bg-gray-100">Savings</a>
+						<a href="https://www.costcobusinessdelivery.com/" class="block px-4 py-2 hover:bg-gray-100">Business Delivery</a>
+						<a href="https://www.costco.com/optical.html" class="block px-4 py-2 hover:bg-gray-100">Optical</a>
+						<a href="https://rx.costco.com/" class="block px-4 py-2 hover:bg-gray-100">Pharmacy</a>
+						<a href="https://www.costco.com/services.html" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+						<a href="https://www.costco.com/photo.html" class="block px-4 py-2 hover:bg-gray-100">Photo</a>
+						<a href="https://www.costcotravel.com/" class="block px-4 py-2 hover:bg-gray-100">Travel</a>
+						<a href="https://www.costco.com/join-costco.html" class="block px-4 py-2 hover:bg-gray-100">Membership</a>
+						<a href="https://www.costco.com/warehouse-locations" class="block px-4 py-2 hover:bg-gray-100">Locations</a>
+					</div>
+				{/if}
+			</li>
+
+			<!-- Full nav (desktop only) -->
+			<div class="hidden md:flex flex-wrap gap-4 ml-6">
+				<li><a href="https://www.costco.com/grocery-household.html">Grocery</a></li>
+				<li><a href="/">Bakery</a></li>
+				<li><a href="https://sameday.costco.com/">Same Day</a></li>
+				<li><a href="https://www.costco.com/s?keyword=OFF&dept=All">Savings</a></li>
+				<li><a href="https://www.costcobusinessdelivery.com/">Business Delivery</a></li>
+				<li><a href="https://www.costco.com/optical.html">Optical</a></li>
+				<li><a href="https://rx.costco.com/">Pharmacy</a></li>
+				<li><a href="https://www.costco.com/services.html">Services</a></li>
+				<li><a href="https://www.costco.com/photo.html">Photo</a></li>
+				<li><a href="https://www.costcotravel.com/">Travel</a></li>
+				<li><a href="https://www.costco.com/join-costco.html">Membership</a></li>
+				<li><a href="https://www.costco.com/warehouse-locations">Locations</a></li>
+			</div>
+		</ul>
 </nav>
 </div>
 
@@ -186,7 +177,7 @@
 	}
 
 	nav {
-		display: flex;
+		
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
@@ -216,11 +207,12 @@
 		padding: 0;
 	}
 
-	.bottom-nav a {
+	.bottom-nav a , .bottom-nav button{
 		color: white;
 		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 		font-size: large;
 	}
+
 
 	.main-nav {
 		display: flex;
@@ -236,7 +228,7 @@
 		font-size: large;
 	}
 
-	.bottom-nav-list {
+	/* .bottom-nav-list {
 		position: relative;
 		height: 3em;
 		display: flex;
@@ -246,7 +238,7 @@
 		width: 100%;
 		background: var(--background);
 		background-size: contain;
-	}
+	} */
 
 	li {
 		position: relative;

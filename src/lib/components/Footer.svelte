@@ -9,7 +9,7 @@
 
 <footer class="bg-[#ededed]">
 	<div class="flex w-[1800px] mx-auto border-b border-[#b3b3b3] pb-8">
-		<div>
+		<div class="hidden md:block">
 			<h1 class="text-[20px]">Customer Service</h1>
 
 			<div class="flex mt-[8px] text-[15px] gap-2 hover:underline cursor-pointer">
@@ -25,7 +25,7 @@
 		  <!-- Right Group -->
     <div class="flex gap-6 ml-auto">
         <!-- Find a Warehouse -->
-        <div>
+        <div class="hidden md:block">
             <h2 class="text-[20px]">Find a Warehouse</h2>
             <div class="mt-[15px] w-[600px] relative">
                 <input type="text" bind:value={location} placeholder="City, State, or Zip"
@@ -139,7 +139,7 @@
 		
 	</div>
 
-	<div class="flex gap-16 my-2 justify-center ">
+	<div class="max-w-screen-xl mx-auto flex flex-wrap justify-center gap-4 my-4 text-sm">
 	<p class="hover:underline cursor-pointer"> Site Map </p>
 	<p class="hover:underline cursor-pointer"> Terms and Conditions </p>
 	<p class="hover:underline cursor-pointer"> Your Privacy Rights </p>
