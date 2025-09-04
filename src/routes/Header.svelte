@@ -19,8 +19,8 @@
 <header>
 	<!--the container for this nav bar needs to be adjusted to be consistent in style regardless of the browser/screen size	-->
 	<!--make sure that number of list items change when the screen is adjusted	-->
-	<div class="top-nav ">
-	<nav class="max-w-[1800px] w-full hidden lg:flex">
+	<div class="top-nav flex ">
+	<nav class="hidden lg:flex">
 		<a href="/">Costco Next</a>
 		<a href="/">While Supplies Last</a>
 		<a href="/">Online-Only</a>
@@ -184,7 +184,7 @@
 	}
 
 	.top-nav {
-		display: flex;
+		
 		justify-content: right;
 		align-items: center;
 		width: 100%;

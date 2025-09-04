@@ -1,14 +1,18 @@
 <script>
 	
-	import { Search } from 'flowbite-svelte';
+import { Search } from 'flowbite-svelte';
 	 let location = '';
-  function search() {
+  
+	 function search() {
     alert(`Searching for: ${location}`);
   }
+
+
 </script>
 
-<footer class="bg-[#ededed]">
-	<div class="flex w-[1800px] mx-auto border-b border-[#b3b3b3] pb-8">
+<footer class="bg-[#ededed] flex-wrap">
+	
+	<div class="flex w-full max-w-[1800px]  mx-auto pb-8">
 		<div class="hidden md:block">
 			<h1 class="text-[20px]">Customer Service</h1>
 
@@ -23,42 +27,43 @@
 		</div>
 		
 		  <!-- Right Group -->
-    <div class="flex gap-6 ml-auto">
-        <!-- Find a Warehouse -->
-        <div class="hidden md:block">
-            <h2 class="text-[20px]">Find a Warehouse</h2>
-            <div class="mt-[15px] w-[600px] relative">
-                <input type="text" bind:value={location} placeholder="City, State, or Zip"
-                    class="w-full rounded border border-gray-300 shadow-sm pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <button type="button" on:click={search}
-                    class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-blue-500 focus:outline-none">
-                    <svg class="transform scale-x-[-1] text-[#005eab]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
-                            d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+			<div class="flex flex-wrap ml-auto">
+				<!-- Find a Warehouse -->
+				<div class="hidden md:block">
+					<h2 class="text-[20px]">Find a Warehouse</h2>
+					<div class="mt-[15px] w-[600px] relative">
+						<input type="text" bind:value={location} placeholder="City, State, or Zip"
+							class="w-full rounded border border-gray-300 shadow-sm pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+						<button type="button" on:click={search}
+							class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-blue-500 focus:outline-none">
+							<svg class="transform scale-x-[-1] text-[#005eab]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+								width="24" height="24" fill="none" viewBox="0 0 24 24">
+								<path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+									d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+							</svg>
+						</button>
+					</div>
+				</div>
 
-        <!-- Get Email Offers -->
-        <div>
-            <h3 class="text-[20px]">Get Email Offers</h3>
-            <div class="mt-[15px] flex w-[600px]">
-                <input type="text" id="location" name="location" placeholder="Enter your email"
-                    class="flex-1 rounded-l border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <button
-                    class="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Go
-                </button>
-            </div>
-        </div>
+				<!-- Get Email Offers -->
+				<div>
+					<h3 class="text-[20px]">Get Email Offers</h3>
+					<div class="mt-[15px] flex w-[600px]">
+						<input type="text" id="location" name="location" placeholder="Enter your email"
+							class="flex-1 rounded-l border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+						<button
+							class="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+							Go
+						</button>
+					</div>
+        	</div>
     </div>
 		
 	</div>
+	<div class="flex justify-between mx-auto w-full max-w-[1800px] m-5 border-b border-[#b3b3b3] pb-8"></div>
 
 	
-	<div class=" justify-center w-[1800px] justify-between mx-auto flex m-[20px] border-b border-[#b3b3b3] pb-8">
+	<div class="justify-center  w-full max-w-[1800px] flex-wrap justify-between mx-auto flex m-[20px] pb-8">
 		<div>
 			<h2 class="text-[20px] mb-2">About Us</h2>
 			
@@ -138,6 +143,7 @@
 		<br/>
 		
 	</div>
+	<div class="flex justify-between mx-auto w-full max-w-[1800px] m-5 border-b border-[#b3b3b3] pb-8"></div>
 
 	<div class="max-w-screen-xl mx-auto flex flex-wrap justify-center gap-4 my-4 text-sm">
 	<p class="hover:underline cursor-pointer"> Site Map </p>
@@ -165,7 +171,7 @@
 
 <style>
 	footer {
-		display: flex;
+		
 		flex-direction: column;
 		justify-content: center;
 		
