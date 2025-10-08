@@ -61,7 +61,8 @@
 </header>
 <div class="main-nav p-2 ">
 <nav class="max-w-[1800px]  flex w-full">
-	<a class="costco-logo" href="https://www.costco.com/">
+	<!-- <a class="costco-logo" href="https://www.costco.com/"> -->
+	<a class="costco-logo" href="/home">
 		<img src={logo} alt="Costco Logo" />
 	</a>
 
@@ -130,7 +131,7 @@
 				{#if isBottomOpen}
 					<div class="absolute left-0 mt-2 w-48 bg-white shadow-md z-50 md:hidden">
 						<a href="https://www.costco.com/grocery-household.html" class="block px-4 py-2 hover:bg-gray-100">Grocery</a>
-						<a href="/" class="block px-4 py-2 hover:bg-gray-100">Bakery</a>
+						<a href="/bakery" class="block px-4 py-2 hover:bg-gray-100">Bakery</a>
 						<a href="https://sameday.costco.com/" class="block px-4 py-2 hover:bg-gray-100">Same Day</a>
 						<a href="https://www.costco.com/s?keyword=OFF&dept=All" class="block px-4 py-2 hover:bg-gray-100">Savings</a>
 						<a href="https://www.costcobusinessdelivery.com/" class="block px-4 py-2 hover:bg-gray-100">Business Delivery</a>
@@ -148,7 +149,7 @@
 			<!-- Full nav (desktop only) -->
 			<div class="hidden md:flex flex-wrap gap-4 ml-6">
 				<li><a href="https://www.costco.com/grocery-household.html">Grocery</a></li>
-				<li><a href="/">Bakery</a></li>
+				<li><a href="/bakery">Bakery</a></li>
 				<li><a href="https://sameday.costco.com/">Same Day</a></li>
 				<li><a href="https://www.costco.com/s?keyword=OFF&dept=All">Savings</a></li>
 				<li><a href="https://www.costcobusinessdelivery.com/">Business Delivery</a></li>
