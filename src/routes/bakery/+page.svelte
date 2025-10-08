@@ -1,8 +1,47 @@
 <script>
-    let priceOpen = false;
-    let customerOpen = false;
-    let brandOpen = false;
-    let dietaryOpen = false;
+	// @ts-ignore
+	import { Label } from "flowbite-svelte";
+
+    // @ts-ignore
+    import ProductCard from "$lib/components/ProductCard.svelte";
+
+    let priceOpen = true;
+    let customerOpen = true;
+    let brandOpen = true;
+    let dietaryOpen = true;
+
+     // @ts-ignore
+     const products = [
+    {
+      name: 'Chocolate Fudge Cake',
+      price: 24.99,
+      rating: 4.5,
+      image: 'https://images.unsplash.com/photo-1605478071316-d1f7c4afcf39?auto=format&fit=crop&w=400&q=80',
+      reviews: 120,
+      deliveryAble: true
+    },
+    {
+      name: 'Cheesecake Sampler',
+      price: 32.5,
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1605478533919-46b7cb9a5b0e?auto=format&fit=crop&w=400&q=80',
+      reviews: 120,
+      deliveryAble: true
+    },
+    {
+      name: 'Lemon Tart',
+      price: 19.99,
+      rating: 4.2,
+      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80',
+      reviews: 120,
+      deliveryAble: true
+    }
+  ];
+
+  // @ts-ignore
+  const handleAddToCart = (event) => {
+    console.log('Added to cart:', event.detail);
+  };
 </script>
 
 <div>
@@ -201,7 +240,7 @@
 
         <!-- Main Content -->
         <main class="flex-1 p-6">
-            <h1 class="text-2xl font-bold">Bakery & Desserts</h1>
+            <h1 class="text-2xl text-left font-bold">Bakery & Desserts</h1>
             
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
             <div class="flex flex-col md:flex-row items-center">
@@ -217,6 +256,73 @@
                 </div>
             </div>
         </div>
+
+        <div class="p-2 border-t border-b border-gray-300" >
+          <div class="flex justify-between items-center w-full">
+                <!-- Left side -->
+                <div class="text-gray-700">
+                    Showing 1–20 of 200 results
+                </div>
+
+                <!-- Right side -->
+                <div class="flex items-center">
+                    <label for="sort" class="text-gray-700 font-medium">Sort by:</label>
+                    <select
+                    id="sort"
+                    class="ml-2 p-1 border border-gray-300 rounded"
+                    >
+                    <option>Best Match</option>
+                    <option>Price (High to Low)</option>
+                    <option>Price (Low to High)</option>
+                    <option>Ratings (High to Low)</option>
+                    <option>Newest</option>
+                    <option>Most Viewed</option>
+                    </select>
+                </div>
+
+            </div>
+
+             <!-- Filter tags -->
+                <div>
+                <ul class="flex flex-wrap gap-3">
+                <li class="flex items-center  text-[#005dab] px-3 py-1 border border-[#005dab] rounded">
+                    <span class="mr-2">$0 to $25</span>
+                    <button class=" hover:text-red-700 font-bold">✕</button>
+                </li>
+
+                <li class="flex items-center  text-[#005dab] px-3 py-1 border border-[#005dab] rounded">
+                    <span class="mr-2">$25 to $50</span>
+                    <button class=" hover:text-red-700 font-bold">✕</button>
+                </li>
+
+                <li class="flex items-center  text-[#005dab] px-3 py-1 border border-[#005dab] rounded">
+                    <span class="mr-2">Show Out of Stock Items</span>
+                    <button class=" hover:text-red-700 font-bold">✕</button>
+                </li>
+                </ul>
+                </div>
+
+            
+
+            
+        </div>
+
+        <!-- Placeholder for product grid -->
+        <div class="flex p-2 "> 
+                {#each products as product}
+                    <ProductCard
+                    name={product.name}
+                    price={product.price}
+                    rating={product.rating}
+                    image={product.image}
+                    reviews={product.reviews}
+                    deliveryAble={product.deliveryAble}
+                    on:addToCart={handleAddToCart}
+                    />
+                {/each}
+                 </div>
+
+
 
         <div class="p-2 border-t border-b border-gray-300 text-right" > <a href= "#">Back to Top</a></div>
         
