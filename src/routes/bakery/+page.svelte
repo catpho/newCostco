@@ -308,7 +308,7 @@
         </div>
 
         <!-- Placeholder for product grid -->
-        <div class="flex p-2 "> 
+        <div class="flex p-2 gap-6"> 
                 {#each products as product}
                     <ProductCard
                     name={product.name}

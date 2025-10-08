@@ -22,7 +22,7 @@
 </script>
 
 <div>
-  <div class="bg-white p-3 hover:shadow-lg transition flex flex-col text-left rounded-t-md "
+  <div class="bg-white p-3 hover:shadow-lg transition flex flex-col text-left rounded-t-md border-b"
   style="width: 250px; height: 460px;">
   <img src={image} alt={name} class="w-full h-40 object-cover rounded-md mb-3" />
 
