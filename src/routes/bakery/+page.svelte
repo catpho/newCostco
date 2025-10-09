@@ -1,8 +1,8 @@
+
 <script>
-	// @ts-ignore
+	// @ts-nocheck
 	import { Label } from "flowbite-svelte";
 
-    // @ts-ignore
     import ProductCard from "$lib/components/ProductCard.svelte";
 
     let priceOpen = true;
@@ -10,7 +10,7 @@
     let brandOpen = true;
     let dietaryOpen = true;
 
-     // @ts-ignore
+     
      const products = [
     {
       name: 'Chocolate Fudge Cake',
@@ -26,7 +26,7 @@
       rating: 4.8,
       image: 'https://images.unsplash.com/photo-1605478533919-46b7cb9a5b0e?auto=format&fit=crop&w=400&q=80',
       reviews: 120,
-      deliveryAble: true
+      deliveryAble: false
     },
     {
       name: 'Lemon Tart',
@@ -64,7 +64,9 @@
             <div class="mb-6 border-b border-gray-300">
             <h3 class="font-medium text-gray-700 mb-2">Category</h3>
             <ul class="space-y-2 text-sm text-blue-600 mb-2">
+                <!-- svelte-ignore a11y-invalid-attribute -->
                 <li><a href="#" class="hover:underline">Grocery & Household Essentials</a></li>
+                <!-- svelte-ignore a11y-invalid-attribute -->
                 <li><a href="#" class="hover:underline">Bakery & Desserts</a></li>
             </ul>
             </div>
@@ -247,7 +249,7 @@
                 <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
                     <h2 class="text-2xl font-bold mb-4">Customize Your Cake</h2>
                     <p class="text-gray-600 mb-4">Create the perfect cake for your special occasion with our customization options. Choose from various flavors, frostings, and decorations.</p>
-                    <button class="bg-costco-red text-white font-bold py-3 px-6 rounded-full hover:bg-red-700 transition">
+                    <button class=" border text-black py-3 px-6 rounded-full hover:bg-red-700 transition">
                         Design Your Cake
                     </button>
                 </div>
