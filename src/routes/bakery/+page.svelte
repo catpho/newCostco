@@ -249,9 +249,11 @@
                 <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
                     <h2 class="text-2xl font-bold mb-4">Customize Your Cake</h2>
                     <p class="text-gray-600 mb-4">Create the perfect cake for your special occasion with our customization options. Choose from various flavors, frostings, and decorations.</p>
+                    <a href="/bakery/customCakes">
                     <button class=" border text-black py-3 px-6 rounded-full hover:bg-red-700 transition">
                         Design Your Cake
                     </button>
+                    </a>
                 </div>
                 <div class="md:w-1/2">
                     <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Custom cake" class="rounded-lg shadow-md w-full">
