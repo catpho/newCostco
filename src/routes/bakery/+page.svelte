@@ -13,20 +13,133 @@
      
      const products = [
     {
-      name: 'Chocolate Fudge Cake',
-      price: 24.99,
+      name: 'David\'s Cookies Variety Cheesecakes, 2-pack(28 Slices Total)',
+      price: 69.99,
       rating: 4.5,
-      image: 'https://images.unsplash.com/photo-1605478071316-d1f7c4afcf39?auto=format&fit=crop&w=400&q=80',
-      reviews: 120,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/5q7xh4xk68fqkv8tcqg836xq/983394-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 522,
       deliveryAble: true
     },
     {
-      name: 'Cheesecake Sampler',
-      price: 32.5,
+      name: 'David\'s Cookies Brownie and Cookie Combo Pack',
+      price: 22.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/f4m58v8xbz4x6r8hn7crv47q/920464-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 2339,
+      deliveryAble: true
+    },
+    {
+      name: 'St Micheal Madeleine, Classic French Sponge Cake 100 - count',
+      price: 44.99,
+      rating: 4.2,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/pfvkcr8xgsp7hhc2pf3jfpr/1382164-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 714,
+      deliveryAble: true
+    },
+    {
+      name: 'David\'s Cookies Mile High Peanut Butter Cake, 6.8 lbs(14 servings)',
+      price: 72.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/s5b4wsfxb8qvt6vs7pjp8s8/1138994-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 306,
+      deliveryAble: true
+    },
+    {
+      name: 'The Cake Bake Shop 8\" Round Carrot Cake (16-22 Servings)',
+      price: 159.99,
+      rating: 4.0,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/5q7xh4xk68fqkv8tcqg836xq/983394-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 10,
+      deliveryAble: true
+    },
+    {
+      name: 'David\'s Cookies Mango & Strawberry Cheesecake 2-count (28 Slices Total)',
+      price: 69.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/f4m58v8xbz4x6r8hn7crv47q/920464-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 430,
+      deliveryAble: true
+    },
+    {
+      name: 'Ferrara\'s Bakery New York Cheesecake 2-pack',
+      price: 99.99,
       rating: 4.8,
-      image: 'https://images.unsplash.com/photo-1605478533919-46b7cb9a5b0e?auto=format&fit=crop&w=400&q=80',
-      reviews: 120,
-      deliveryAble: false
+      image: 'https://bfasset.costco-static.com/U447IH35/as/pfvkcr8xgsp7hhc2pf3jfpr/1382164-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 173,
+      deliveryAble: true
+    },
+    {
+      name: 'Austin Cake Ball Catering Assortment, 48 Cake Balls',
+      price: 89.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/s5b4wsfxb8qvt6vs7pjp8s8/1138994-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 102,
+      deliveryAble: true
+    },
+
+    {
+      name: 'Hostess Cupcakes & Twinkies, 32-count',
+      price: 10.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/5q7xh4xk68fqkv8tcqg836xq/983394-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 69,
+      deliveryAble: true
+    },
+    {
+      name: 'David\'s Cookies No Sugar Added Cheesecake & Marble Truffle Cake, 2-pack (28 Slices Total)',
+      price: 69.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/f4m58v8xbz4x6r8hn7crv47q/920464-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 281,
+      deliveryAble: true
+    },
+    {
+      name: 'David\'s Cookies Premier Chocolate Cake, 7.2 lbs (Serves 14)',
+      price: 74.99,
+      rating: 4.4,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/pfvkcr8xgsp7hhc2pf3jfpr/1382164-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 842,
+      deliveryAble: true
+    },
+    {
+      name: 'David\'s Cookies Chocolate Fudge Birthday Cake, 3.75 lbs. Includes Party Pack (16 servings)',
+      price: 64.99,
+      rating: 4.8,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/s5b4wsfxb8qvt6vs7pjp8s8/1138994-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 306,
+      deliveryAble: true
+    },
+    {
+      name: 'The Cake Bake Shop 8\" Round Pixie Fetti Cake (16-22 Servings)',
+      price: 159.99,
+      rating: 4.0,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/5q7xh4xk68fqkv8tcqg836xq/983394-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 10,
+      deliveryAble: true
+    },
+    {
+      name: 'David\'s Cookies 10\" Rainbow Cake (12 Servings)',
+      price: 72.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/f4m58v8xbz4x6r8hn7crv47q/920464-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 430,
+      deliveryAble: true
+    },
+    {
+      name: 'Ferrara\'s Bakery New York Cheesecake 2-pack',
+      price: 99.99,
+      rating: 4.8,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/pfvkcr8xgsp7hhc2pf3jfpr/1382164-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 173,
+      deliveryAble: true
+    },
+    {
+      name: 'Austin Cake Ball Catering Assortment, 48 Cake Balls',
+      price: 89.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/s5b4wsfxb8qvt6vs7pjp8s8/1138994-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 102,
+      deliveryAble: true
     },
     {
       name: 'Lemon Tart',
@@ -37,6 +150,56 @@
       deliveryAble: true
     }
   ];
+
+      let currentPage = 1;
+  const productsPerPage = 24;
+
+  $: totalPages = Math.ceil(products.length / productsPerPage);
+
+  $: paginatedProducts =
+    products.slice(
+      (currentPage - 1) * productsPerPage,
+      currentPage * productsPerPage
+    );
+
+  function goToPage(page) {
+    currentPage = page;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function prev() {
+    if (currentPage > 1) goToPage(currentPage - 1);
+  }
+
+  function next() {
+    if (currentPage < totalPages) goToPage(currentPage + 1);
+  }
+
+  $: pages = getVisiblePages(currentPage, totalPages);
+
+  function getVisiblePages(current, total) {
+    const delta = 2;
+    const range = [];
+    const result = [];
+
+    for (
+      let i = Math.max(2, current - delta);
+      i <= Math.min(total - 1, current + delta);
+      i++
+    ) {
+      range.push(i);
+    }
+
+    result.push(1);
+
+    if (current - delta > 2) result.push("...");
+    result.push(...range);
+    if (current + delta < total - 1) result.push("...");
+
+    if (total > 1) result.push(total);
+
+    return [...new Set(result)];
+  }
 
   // @ts-ignore
   const handleAddToCart = (event) => {
@@ -256,7 +419,7 @@
                     </a>
                 </div>
                 <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Custom cake" class="rounded-lg shadow-md w-full">
+                    <img src="https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_548/k%2FPhoto%2FSeries%2F2024-08-costco-cakes%2Fcostco-cakes-033" alt="Custom Cake" class="w-80 h-auto rounded-lg object-cover">
                 </div>
             </div>
         </div>
@@ -312,23 +475,49 @@
         </div>
 
         <!-- Placeholder for product grid -->
-        <div class="flex p-2 gap-6"> 
-                {#each products as product}
-                    <ProductCard
-                    name={product.name}
-                    price={product.price}
-                    rating={product.rating}
-                    image={product.image}
-                    reviews={product.reviews}
-                    deliveryAble={product.deliveryAble}
-                    on:addToCart={handleAddToCart}
-                    />
-                {/each}
-                 </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-2">
+        {#each paginatedProducts as product}
+            <ProductCard
+            name={product.name}
+            price={product.price}
+            rating={product.rating}
+            image={product.image}
+            reviews={product.reviews}
+            deliveryAble={product.deliveryAble}
+            on:addToCart={handleAddToCart}
+            />
+        {/each}
+        </div>
 
 
 
-        <div class="p-2 border-t border-b border-gray-300 text-right" > <a href= "#">Back to Top</a></div>
+        <div class="p-2 border-t border-b border-gray-300 text-right" >
+            
+        <!-- Left arrow -->
+        <button on:click={prev} class="px-2 py-1 border rounded hover:bg-gray-100">
+            &lt;
+        </button>
+
+        {#each pages as page}
+            {#if page === "..."}
+            <span class="px-2">...</span>
+            {:else}
+            <button
+                on:click={() => goToPage(page)}
+                class="px-3 py-1 border rounded hover:bg-gray-100"
+            >
+                {page}
+            </button>
+            {/if}
+        {/each}
+
+        <!-- Right arrow -->
+        <button on:click={next} class="px-2 py-1 border rounded hover:bg-gray-100">
+            &gt;
+        </button> 
+        
+        <a href= "#top">Back to Top</a>
+        </div>
         
         <div class="p-1">
             <h3 class=" my-3 text-2xl"> Shop Related Categories</h3>
@@ -340,30 +529,34 @@
                     <div class="w-40 h-40 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                     <img 
                     class="w-full h-full rounded-full object-cover "
+                    alt="snackBag"
                     src="https://cdn.bfldr.com/56O3HXZ9/at/n68n8ggbg7w526f37zb8kr/24w09154_cat_tile_snacks_v2.png?auto=webp&amp;format=jpg">
                     </div>
-                    <a href="#" class="font-bold hover:underline">Snacks</a></li>
+                    <a href="https://www.costco.com/snacks.html" class="font-bold hover:underline">Snacks</a></li>
                 <li class="inline-block items-center text-center mr-4 mb-2">
                     <div class="w-40 h-40 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                     <img 
                     class="w-full h-full rounded-full object-cover "
+                    alt="giftBag"
                     src="https://cdn.bfldr.com/U447IH35/at/fxrt3th49mgkpnxrnkcztsj/all-gift-baskets-towers-c.png?auto=webp&amp;format=jpg">
                     </div>
-                    <a href="#" class="font-bold hover:underline">Gift Baskets & Treats</a></li>
+                    <a href="https://www.costco.com/all-gift-baskets-towers.html" class="font-bold hover:underline">Gift Baskets & Treats</a></li>
                 <li class="inline-block items-center text-center mr-4 mb-2">
                     <div class="w-40 h-40 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                     <img 
                     class="w-full h-full rounded-full object-cover "
+                    alt="proteinBar"
                     src="https://cdn.bfldr.com/56O3HXZ9/at/486phtswwxnsvfpbhmr9nm5/snacks-bars-c.png?auto=webp&amp;format=jpg">
                     </div>
-                    <a href="#" class=" font-bold hover:underline">Breakfast</a></li>
+                    <a href="https://www.costco.com/breakfast.html" class=" font-bold hover:underline">Breakfast</a></li>
                 <li class="inline-block items-center text-center mr-4 mb-2">
                     <div class="w-40 h-40 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                     <img 
                     class="w-full h-full rounded-full object-cover "
+                    alt="mintBag"
                     src="https://cdn.bfldr.com/56O3HXZ9/at/3qb5x6h9jbtp8679kfff7n/gum-mints-c.png?auto=webp&amp;format=jpg">
                     </div>
-                    <a href="#" class="font-bold hover:underline">Gum & Mints</a></li>
+                    <a href="https://www.costco.com/gum-mints.html" class="font-bold hover:underline">Gum & Mints</a></li>
             </ul>
             <!--FIXME: make sure main content is cropped similiarly to the original website -->
         </div>
