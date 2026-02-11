@@ -10,7 +10,7 @@
     let brandOpen = true;
     let dietaryOpen = true;
 
-     
+     // FIXME: Need to Format the Product Cards so that they stay a static size and that they ae responsive to the change in screen size 
      const products = [
     {
       name: 'David\'s Cookies Variety Cheesecakes, 2-pack(28 Slices Total)',
@@ -48,7 +48,7 @@
       name: 'The Cake Bake Shop 8\" Round Carrot Cake (16-22 Servings)',
       price: 159.99,
       rating: 4.0,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/5q7xh4xk68fqkv8tcqg836xq/983394-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/x3n3mbjsq7fjcvscncwvvbcp/1744591-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 10,
       deliveryAble: true
     },
@@ -56,7 +56,7 @@
       name: 'David\'s Cookies Mango & Strawberry Cheesecake 2-count (28 Slices Total)',
       price: 69.99,
       rating: 4.3,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/f4m58v8xbz4x6r8hn7crv47q/920464-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/p5tmbg68bmsmk6ppbkh7nrz/1350663-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 430,
       deliveryAble: true
     },
@@ -64,7 +64,7 @@
       name: 'Ferrara\'s Bakery New York Cheesecake 2-pack',
       price: 99.99,
       rating: 4.8,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/pfvkcr8xgsp7hhc2pf3jfpr/1382164-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/x75x8c3bsbgqkht64xvxhxtg/1550649-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 173,
       deliveryAble: true
     },
@@ -72,16 +72,15 @@
       name: 'Austin Cake Ball Catering Assortment, 48 Cake Balls',
       price: 89.99,
       rating: 4.3,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/s5b4wsfxb8qvt6vs7pjp8s8/1138994-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/6vjcbskxsjv8bk45g69vfh/1681898-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 102,
       deliveryAble: true
     },
-
     {
       name: 'Hostess Cupcakes & Twinkies, 32-count',
       price: 10.99,
       rating: 4.3,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/5q7xh4xk68fqkv8tcqg836xq/983394-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/x3qwv3vnhj85h69j6s9grt/4000153042-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 69,
       deliveryAble: true
     },
@@ -89,7 +88,7 @@
       name: 'David\'s Cookies No Sugar Added Cheesecake & Marble Truffle Cake, 2-pack (28 Slices Total)',
       price: 69.99,
       rating: 4.3,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/f4m58v8xbz4x6r8hn7crv47q/920464-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/q8g86c38fxn8jz7tvt96/1347207-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 281,
       deliveryAble: true
     },
@@ -97,7 +96,7 @@
       name: 'David\'s Cookies Premier Chocolate Cake, 7.2 lbs (Serves 14)',
       price: 74.99,
       rating: 4.4,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/pfvkcr8xgsp7hhc2pf3jfpr/1382164-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/5w3wrxrq9pfvk3h79hwp7sr/1138993-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 842,
       deliveryAble: true
     },
@@ -105,7 +104,7 @@
       name: 'David\'s Cookies Chocolate Fudge Birthday Cake, 3.75 lbs. Includes Party Pack (16 servings)',
       price: 64.99,
       rating: 4.8,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/s5b4wsfxb8qvt6vs7pjp8s8/1138994-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/f68mmcbh6kq4mv7p556j8tv/1160390-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 306,
       deliveryAble: true
     },
@@ -113,7 +112,7 @@
       name: 'The Cake Bake Shop 8\" Round Pixie Fetti Cake (16-22 Servings)',
       price: 159.99,
       rating: 4.0,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/5q7xh4xk68fqkv8tcqg836xq/983394-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      image: 'https://bfasset.costco-static.com/U447IH35/as/9xhjq5rrv9359tqcmtrtncj/1744589-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
       reviews: 10,
       deliveryAble: true
     },
@@ -121,24 +120,89 @@
       name: 'David\'s Cookies 10\" Rainbow Cake (12 Servings)',
       price: 72.99,
       rating: 4.3,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/f4m58v8xbz4x6r8hn7crv47q/920464-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
-      reviews: 430,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/2t66ppwvbpfx3p4chbcntnm/1353724-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 394,
       deliveryAble: true
     },
     {
-      name: 'Ferrara\'s Bakery New York Cheesecake 2-pack',
-      price: 99.99,
-      rating: 4.8,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/pfvkcr8xgsp7hhc2pf3jfpr/1382164-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
-      reviews: 173,
+      name: 'The Cake Bake Shop 8\" Round Chocolate Cake (16-22 Servings)',
+      price: 159.99,
+      rating: 4.1,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/9khnp5tt9cf8krvwj3tgtnsg/1744573-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 11,
       deliveryAble: true
     },
     {
-      name: 'Austin Cake Ball Catering Assortment, 48 Cake Balls',
-      price: 89.99,
+      name: 'Collin Street Bakery Cake Bites Bundle, DeLuxe Fruitcake & Pineapple Pecan Cake, 2-pack, 24 Bites Total',
+      price: 39.99,
       rating: 4.3,
-      image: 'https://bfasset.costco-static.com/U447IH35/as/s5b4wsfxb8qvt6vs7pjp8s8/1138994-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
-      reviews: 102,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/7vm63ggjn86cppk2n6nc46v/1848583-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 232,
+      deliveryAble: true
+    },
+
+    {
+      name: 'Collin Street Bakery Mini Pecan Cake Bundle, 9oz. per Cake',
+      price: 59.99,
+      rating: 4.0,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/2sh7jkc4gvs4cpr6t6jxtxpc/1838863-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 58,
+      deliveryAble: true
+    },
+    {
+      name: 'Ferrara\'s Bakery 8in. Tiramisu Cake, 2-pack',
+      price: 99.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/hf8svv7m484g3cxs67z7h/1792776-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 49,
+      deliveryAble: true
+    },
+    {
+      name: 'Collin Street Bakery 2 Pecan Pie Bundle, 3.25 lb Total, 16 Total Servings',
+      price: 54.99,
+      rating: 4.2,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/q5jxv3gzhtj6t9nxhzx899/1886569-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 45,
+      deliveryAble: true
+    },
+    {
+      name: 'Collin Street Bakery Cinnamon Coffee Cake, 3.79 lb.',
+      price: 49.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/7436n6hr3hfnc94595gjws/1838855-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 73,
+      deliveryAble: true
+    },
+    {
+      name: 'Libanais Baklava Assortment, 100 Pieces, 4 lb Total',
+      price: 39.99,
+      rating: 4.0,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/sj597vtgfxq9ws833p3q/1880059-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 894,
+      deliveryAble: true
+    },
+    {
+      name: 'Ferraras\'s Bakery 24 Large Cannolis(12 Plain Filled and 12 Hand Dipped Belgian Chocolate)',
+      price: 129.99,
+      rating: 4.0,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/fxkv9mhr4252bckv4t8f9/1516328-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 219,
+      deliveryAble: true
+    },
+    {
+      name: 'David\'s Cookies Decadant Triple Chocolate made with mini Hershey\'s Kisses and Reese\'s Peanut Butter Cups Cookies Tin - 2 Count',
+      price: 39.99,
+      rating: 4.1,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/g3pn5mqx2jkv6p2tfnrk8c4/1350660-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 1030,
+      deliveryAble: true
+    },
+    {
+      name: 'Mary Macleod\'s 8in. Gluten Free Shortbread Cookies Mixed Assortment 8-Pack',
+      price: 49.99,
+      rating: 4.3,
+      image: 'https://bfasset.costco-static.com/U447IH35/as/7f2hrvhxk48k3ffqqbxj5hf9/1593720-847__1?auto=webp&format=jpg&width=1024&height=1024&fit=bounds&canvas=1024%2C1024',
+      reviews: 173,
       deliveryAble: true
     },
     {
@@ -489,12 +553,12 @@
         {/each}
         </div>
 
-
+        <!-- FIXME: Pagination needs to be centered and the arrows should only be shown if it is possible to go back and possible to go forward. If there is not earlier pages, hide left arrow -->
 
         <div class="p-2 border-t border-b border-gray-300 text-right" >
             
         <!-- Left arrow -->
-        <button on:click={prev} class="px-2 py-1 border rounded hover:bg-gray-100">
+        <button on:click={prev} class="px-2 py-1  text-[#005eab] hover:bg-gray-100">
             &lt;
         </button>
 
@@ -504,7 +568,7 @@
             {:else}
             <button
                 on:click={() => goToPage(page)}
-                class="px-3 py-1 border rounded hover:bg-gray-100"
+                class="px-3 py-1 text-[#005eab] hover:bg-gray-100"
             >
                 {page}
             </button>
@@ -512,7 +576,7 @@
         {/each}
 
         <!-- Right arrow -->
-        <button on:click={next} class="px-2 py-1 border rounded hover:bg-gray-100">
+        <button on:click={next} class="px-2 py-1  text-[#005eab] hover:bg-gray-100">
             &gt;
         </button> 
         
