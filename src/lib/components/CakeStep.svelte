@@ -77,7 +77,7 @@
     $: stepKey = step.key;
   </script>
   
-  <fieldset class="max-w-xl mx-auto border rounded p-6 bg-gray-50">
+  <fieldset class="max-w-xl ml-auto border rounded p-6 bg-gray-50">
   
     <!-- Header -->
     <div class="flex justify-between items-center mb-4">

@@ -12,7 +12,9 @@ import CakeStep from "$lib/components/CakeStep.svelte";
     </nav>
     
     Picture here 
+   
     <CakeStep />
+    
     <div class="flex justify-between items-center"> whats up</div>
 </div>
 
