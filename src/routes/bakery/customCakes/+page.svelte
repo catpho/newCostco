@@ -87,44 +87,78 @@
 		return false;
 	}
 </script>
-
+<!-- TODO: REFACTOR THE CODE TO BE SO THAT THE PROGRESS ORDER BAR IS A COMPONENT THAT IS IMPORTED TO USED HERE  -->
 <div>
-	<nav>
-		<ul class="horizontal-list">
-			{#each steps as step}
-				<li>
-					{#if step.id === 'store' && selectedStore && activeStep !== 'store'}
-						<div class="step-store-info">
-							<div class="store-display">
-								<span class="store-display-name">{selectedStore.name}</span>
-								<span class="store-display-address">
+	
+		<nav class="border-b mb-6">
+			<ul class="flex gap-8 items-start">
+				{#each steps as step}
+					<li>
+						{#if step.id === 'store' && selectedStore && activeStep !== 'store'}
+							<div class="flex flex-col">
+								<span class="font-semibold text-gray-800">
+									{selectedStore.name}
+								</span>
+								<span class="text-sm text-gray-500">
 									{selectedStore.address}, {selectedStore.city}, {selectedStore.state} {selectedStore.zip}
 								</span>
-								<button type="button" class="edit-link" on:click={() => (activeStep = 'store')}>edit</button>
+								<button
+									type="button"
+									class="text-xs text-blue-600 underline mt-1 hover:text-blue-800"
+									on:click={() => (activeStep = 'store')}
+								>
+									edit
+								</button>
 							</div>
-						</div>
-					{:else}
-						<button
-							class="step-btn"
-							class:active={activeStep === step.id}
-							disabled={!isStepAccessible(step)}
-							on:click={() => goToStep(step.id)}
-							type="button"
-						>
-							{step.label}
-						</button>
-					{/if}
-				</li>
-			{/each}
-		</ul>
-	</nav>
+		
+						{:else if step.id === 'pickup' && selectedPickupDate && selectedPickupTime && activeStep === 'checkout'}
+							<div class="flex flex-col">
+								<span class="font-semibold text-gray-800">
+									{selectedPickupDate.toLocaleDateString('en-US', {
+										weekday: 'long',
+										month: 'long',
+										day: 'numeric',
+										year: 'numeric'
+									})}
+								</span>
+								<span class="text-sm text-gray-500">
+									{formatTime(selectedPickupTime)}
+								</span>
+								<button
+									type="button"
+									class="text-xs text-blue-600 underline mt-1 hover:text-blue-800"
+									on:click={() => (activeStep = 'pickup')}
+								>
+									edit
+								</button>
+							</div>
+		
+						{:else}
+							<button
+								type="button"
+								on:click={() => goToStep(step.id)}
+								disabled={!isStepAccessible(step)}
+								class="pb-2 border-b-2 transition
+								{activeStep === step.id
+									? 'border-blue-600 text-blue-600 font-semibold'
+									: 'border-transparent text-gray-500 hover:text-gray-800'}
+								disabled:text-gray-400 disabled:cursor-not-allowed"
+							>
+								{step.label}
+							</button>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		</nav>
+	
 
 	<picture>
 		<!-- Placeholder for bakery image -->
 	</picture>
 
 	{#if activeStep === 'store'}
-		<div class="store-selector max-w-xl border rounded p-6 bg-gray-50">
+		<div class="max-w-xl border border-gray-200 rounded-lg p-6 bg-gray-50 shadow-sm">
 			
 			<p class="text-sm text-gray-600 mb-4">
 				Enter your zipcode to find avaliable Costco stores with online cake ordering. 
@@ -137,13 +171,15 @@
 					bind:value={zipCode}
 					on:keydown={(e) => e.key === 'Enter' && searchStores()}
 					maxlength="5"
-					class="zip-input"
+					class="w-40 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
 				/>
 				<button
 					type="button"
 					on:click={searchStores}
 					disabled={isLoading}
-					class="search-btn"
+					class="px-4 py-2 bg-blue-600 text-white rounded-md font-medium 
+					hover:bg-blue-700 transition
+					disabled:opacity-70 disabled:cursor-not-allowed"
 				>
 					{isLoading ? 'Searching...' : 'Find Stores'}
 				</button>
@@ -161,28 +197,30 @@
 					<button
 						type="button"
 						on:click={() => (activeStep = 'pickup')}
-						class="continue-btn mt-3"
+						class="px-4 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed mt-3"
 					>
 						Continue to Pickup
 					</button>
 				</div>
 			{/if}
 			{#if stores.length > 0}
-				<ul class="store-list">
+				<ul class="flex flex-col gap-2 max-h-80 overflow-y-auto">
 					{#each stores as { store, distance }}
 						<li>
 							<button
 								type="button"
-								class="store-item"
+								class="w-full text-left px-4 py-3 border border-gray-300 rounded bg-white
+								hover:border-blue-600 hover:bg-gray-50 transition
+								{selectedStore?.id === store.id ? 'border-blue-600 bg-blue-50' : ''}"
 								class:selected={selectedStore?.id === store.id}
 								on:click={() => selectStore({ store })}
 							>
-								<div class="store-name">{store.city}</div>
-								<div class="store-address">
+								<div class="font-semibold text-gray-800">{store.city}</div>
+								<div class="text-sm text-gray-500">
 									{store.address},
                                     <br>{store.state} {store.zip}
 								</div>
-								<div class="store-distance">{distance.toFixed(1)} mi away</div>
+								<div class="text-xs text-blue-600">{distance.toFixed(1)} mi away</div>
 							</button>
 						</li>
 					{/each}
@@ -199,11 +237,15 @@
 				</p>
 				<div class="mt-4">
 					<p class="text-sm font-medium text-gray-700 mb-2">Pickup time</p>
-					<div class="time-slots">
+					<div class="flex flex-wrap gap-2">
 						{#each pickupTimeSlots as slot}
 							<button
 								type="button"
-								class="time-slot"
+								class="px-3 py-2 border border-gray-300 rounded text-sm transition
+								hover:border-blue-600 hover:bg-gray-50
+								{selectedPickupTime === slot
+									? 'bg-blue-600 text-white border-blue-600'
+									: 'bg-white'}"
 								class:selected={selectedPickupTime === slot}
 								on:click={() => (selectedPickupTime = slot)}
 							>
@@ -216,7 +258,7 @@
 			<button
 				type="button"
 				on:click={() => { pickupComplete = true; activeStep = 'checkout'; }}
-				class="continue-btn mt-4"
+				class="px-4 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed mt-4"
 				disabled={!selectedPickupDate || !selectedPickupTime}
 			>
 				Continue to Checkout
@@ -233,202 +275,5 @@
 </div>
 
 <style>
-	.horizontal-list {
-		display: flex;
-		list-style: none;
-		padding: 0;
-		gap: 1rem;
-	}
-
-	.horizontal-list li {
-		margin: 0;
-	}
-
-	.step-btn {
-		padding: 0.5rem 1rem;
-		border: none;
-		background: none;
-		cursor: pointer;
-		font-size: 1rem;
-		color: #666;
-		border-bottom: 2px solid transparent;
-	}
-
-	.step-btn:hover {
-		color: #333;
-	}
-
-	.step-btn.active {
-		color: #005dab;
-		font-weight: 600;
-		border-bottom-color: #005dab;
-	}
-
-	.step-btn:disabled {
-		color: #999;
-		cursor: not-allowed;
-		pointer-events: none;
-	}
-
-	.step-store-info {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.store-display {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.store-display-name {
-		font-weight: 600;
-		font-size: 1rem;
-		color: #333;
-	}
-
-	.store-display-address {
-		font-size: 0.875rem;
-		color: #666;
-		margin-top: 0.125rem;
-	}
-
-	.edit-link {
-		font-size: 0.75rem;
-		color: #005dab;
-		text-decoration: underline;
-		margin-top: 0.25rem;
-		padding: 0;
-		border: none;
-		background: none;
-		cursor: pointer;
-	}
-
-	.edit-link:hover {
-		color: #004a8c;
-	}
-
-	.continue-btn {
-		padding: 0.5rem 1rem;
-		background: #005dab;
-		color: white;
-		border: none;
-		border-radius: 0.25rem;
-		cursor: pointer;
-		font-weight: 500;
-	}
-
-	.continue-btn:hover {
-		background: #004a8c;
-	}
-
-	.zip-input {
-		flex: 1;
-		max-width: 10rem;
-		padding: 0.5rem 0.75rem;
-		border: 1px solid #ccc;
-		border-radius: 0.25rem;
-	}
-
-	.zip-input:focus {
-		outline: none;
-		border-color: #005dab;
-		box-shadow: 0 0 0 2px rgba(0, 93, 171, 0.2);
-	}
-
-	.search-btn {
-		padding: 0.5rem 1rem;
-		background: #005dab;
-		color: white;
-		border: none;
-		border-radius: 0.25rem;
-		cursor: pointer;
-		font-weight: 500;
-	}
-
-	.search-btn:hover:not(:disabled) {
-		background: #004a8c;
-	}
-
-	.search-btn:disabled {
-		opacity: 0.7;
-		cursor: not-allowed;
-	}
-
-	.store-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		max-height: 20rem;
-		overflow-y: auto;
-	}
-
-	.store-item {
-		text-align: left;
-		width: 100%;
-		padding: 0.75rem 1rem;
-		border: 1px solid #ddd;
-		border-radius: 0.25rem;
-		background: white;
-		cursor: pointer;
-		transition: border-color 0.15s, background 0.15s;
-	}
-
-	.store-item:hover {
-		border-color: #005dab;
-		background: #f8fafc;
-	}
-
-	.store-item.selected {
-		border-color: #005dab;
-		background: #e8f4fc;
-	}
-
-	.store-name {
-		font-weight: 600;
-		color: #333;
-		margin-bottom: 0.25rem;
-	}
-
-	.store-address {
-		font-size: 0.875rem;
-		color: #666;
-		margin-bottom: 0.25rem;
-	}
-
-	.store-distance {
-		font-size: 0.75rem;
-		color: #005dab;
-	}
-
-	.time-slots {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-
-	.time-slot {
-		padding: 0.5rem 0.75rem;
-		border: 1px solid #ddd;
-		border-radius: 0.25rem;
-		background: white;
-		font-size: 0.875rem;
-		cursor: pointer;
-		transition: border-color 0.15s, background 0.15s;
-	}
-
-	.time-slot:hover {
-		border-color: #005dab;
-		background: #f8fafc;
-	}
-
-	.time-slot.selected {
-		border-color: #005dab;
-		background: #005dab;
-		color: white;
-	}
+	
 </style>
