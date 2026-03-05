@@ -1,8 +1,10 @@
 <script>
+	//@ts-nocheck
 	import CakeStep from '$lib/components/CakeStep.svelte';
 	import PickupCalendar from '$lib/components/PickupCalendar.svelte';
 	import { findStoresNearZip } from '$lib/utils/storeLocator.js';
 	import { getPickupTimeSlots } from '$lib/utils/pickupTimes.js';
+	import ProgressOrder from '$lib/components/progressOrder.svelte';
 
 	let activeStep = 'store';
 	let zipCode = '';
@@ -90,67 +92,16 @@
 <!-- TODO: REFACTOR THE CODE TO BE SO THAT THE PROGRESS ORDER BAR IS A COMPONENT THAT IS IMPORTED TO USED HERE  -->
 <div>
 	
-		<nav class="border-b mb-6">
-			<ul class="flex gap-8 items-start">
-				{#each steps as step}
-					<li>
-						{#if step.id === 'store' && selectedStore && activeStep !== 'store'}
-							<div class="flex flex-col">
-								<span class="font-semibold text-gray-800">
-									{selectedStore.name}
-								</span>
-								<span class="text-sm text-gray-500">
-									{selectedStore.address}, {selectedStore.city}, {selectedStore.state} {selectedStore.zip}
-								</span>
-								<button
-									type="button"
-									class="text-xs text-blue-600 underline mt-1 hover:text-blue-800"
-									on:click={() => (activeStep = 'store')}
-								>
-									edit
-								</button>
-							</div>
-		
-						{:else if step.id === 'pickup' && selectedPickupDate && selectedPickupTime && activeStep === 'checkout'}
-							<div class="flex flex-col">
-								<span class="font-semibold text-gray-800">
-									{selectedPickupDate.toLocaleDateString('en-US', {
-										weekday: 'long',
-										month: 'long',
-										day: 'numeric',
-										year: 'numeric'
-									})}
-								</span>
-								<span class="text-sm text-gray-500">
-									{formatTime(selectedPickupTime)}
-								</span>
-								<button
-									type="button"
-									class="text-xs text-blue-600 underline mt-1 hover:text-blue-800"
-									on:click={() => (activeStep = 'pickup')}
-								>
-									edit
-								</button>
-							</div>
-		
-						{:else}
-							<button
-								type="button"
-								on:click={() => goToStep(step.id)}
-								disabled={!isStepAccessible(step)}
-								class="pb-2 border-b-2 transition
-								{activeStep === step.id
-									? 'border-blue-600 text-blue-600 font-semibold'
-									: 'border-transparent text-gray-500 hover:text-gray-800'}
-								disabled:text-gray-400 disabled:cursor-not-allowed"
-							>
-								{step.label}
-							</button>
-						{/if}
-					</li>
-				{/each}
-			</ul>
-		</nav>
+	<ProgressOrder
+	{steps}
+	{activeStep}
+	{selectedStore}
+	{selectedPickupDate}
+	{selectedPickupTime}
+	{canAccessPickup}
+	{canAccessCheckout}
+	{goToStep}
+	/>
 	
 
 	<picture>

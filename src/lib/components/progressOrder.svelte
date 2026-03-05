@@ -26,6 +26,7 @@
 		if (step.id === 'checkout') return canAccessCheckout;
 		return false;
 	}
+	
 </script>
 
 <nav class="border-b mb-6">

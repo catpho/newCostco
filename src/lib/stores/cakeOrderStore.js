@@ -1,17 +1,5 @@
 //@ts-nocheck
 import { writable } from 'svelte/store';
-import { db } from '$lib/firebase/firebase.client';
-import {
-    collection,
-    addDoc,
-    deleteDoc,
-    updateDoc,
-    getDoc,
-    getDocs,
-    doc,
-    serverTimestamp, query,
-    where
-} from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { auth } from '$lib/firebase/firebase.client';
 /**
@@ -20,237 +8,83 @@ import { auth } from '$lib/firebase/firebase.client';
 
 /** @type {{ isLoading: boolean, cakeOrders: cakeOrder[], currentcakeOrder: cakeOrder | null }} */
 
+export const stepIndex = writable(0);
+
 export const cakeOrderStore = writable({
-    isLoading: true,
-    cakeOrders: [],
-    currentcakeOrder: null
+    flavor:'',
+    cost:0.00,
+    design:'',
+    message:'',
+    notes:'',
+    phone:999-999-9999,
+    consent:false,
+    address:'',
+    date:Date
 });
 
-
-// Handlers for cakeOrder-related operations
-export const cakeOrderHandlers = {
-    // Fetch all cakeOrders
-    getcakeOrders: async () => {
-        try {
-
-            const cakeOrdersRef = collection(db, 'cakeOrders');
-            const cakeOrders = cakeOrdersRef.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            cakeOrderStore.set({ isLoading: false, cakeOrders, currentcakeOrder: null });
-        } catch (error) {
-            console.error('Error fetching cakeOrders:', error);
-        }
+export const steps = [
+    {
+      name: "Flavor",
+      key: "flavor",
+      options: [
+        { id: "white", label: "White Buttercream Icing with Vanilla Cheesecake Mousse Filling" },
+        { id: "chocolate", label: "Chocolate Fudge Icing with Chocolate Cheesecake Mousse Filling" }
+      ]
     },
-
-    getUserCakeOrders: async (userId) => {
-        try {
-
-            if (!userId) {
-                throw new Error("User is not authenticated.");
-            }
-
-            const cakeOrdersRef = collection(db, 'cakeOrders');
-            const q = query(cakeOrdersRef, where('userId', '==', userId)); // Query only the user's cakeOrders
-            const snapshot = await getDocs(q);
-            const cakeOrders = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            cakeOrderStore.update((state) => ({ ...state, isLoading: false, cakeOrders, currentcakeOrder: null }));
-        } catch (error) {
-            console.error('Error fetching cakeOrders:', error);
-        }
+    {
+      name: "Size",
+      key: "cost",
+      options: [
+        { id: 15.99, label: "10\" Round Cake         $15.99" },
+        { id: 24.99, label: "1/2 Sheet Cake         $24.99" }
+      ]
     },
-
-    // Fetch by ID
-    getcakeOrder: async (cakeOrderId) => {
-        try {
-
-            const userId = auth.currentUser ? auth.currentUser.uid : null;
-
-            if (!userId) {
-                throw new Error("User is not authenticated.");
-            }
-
-            const cakeOrdersRef = doc(db, 'cakeOrders', cakeOrderId);
-            const cakeOrderDoc = await getDoc(cakeOrderRef);
-            if (cakeOrderDoc.exists()) {
-                cakeOrderStore.update(state => ({
-                    ...state,
-                    isLoading: false,
-                    currentcakeOrder: { id: cakeOrderDoc.id, ...cakeOrderDoc.data() }
-                }));
-
-                return cakeOrderDoc.data();
-            } else {
-                console.warn(`order with ID ${cakeOrderId} does not exist.`);
-                cakeOrderStore.update(state => ({
-                    ...state,
-                    isLoading: false,
-                    currentcakeOrder: null
-                }));
-            }
-        } catch (error) {
-            console.error('Error fetching order:', error);
-        }
+    //Make seasonal a reusable option where the user can choose how differently the selection is shown to the user and the design can change 
+    {
+      name: "Design",
+      key: "design",
+      options: [
+        { id: "roses", label: "Roses" },
+        { id: "candles", label: "Candles" },
+        { id: "cross", label: "Cross" },
+        { id: "scored", label: "Scored" },
+        { id: "rainbow", label: "Rainbow" },
+        { id: "flag", label: "Flag" },
+        { id: "balloons", label: "Balloons" },
+        { id: "babyshower", label: "Baby Shower" },
+        { id: "daisy", label: "Daisy" },
+        { id: "seasonal", label: "Seasonal-Placeholder" },
+        { id: "none", label: "No Design" }
+      
+      ]
     },
-
-    searchcakeOrder: async (searchQuery) => {
-        try {
-            const userId = auth.currentUser ? auth.currentUser.uid : null;
-            if (!userId) {
-                throw new Error("User is not authenticated.");
-            }
-
-            cakeOrderStore.update(state => ({ ...state, isLoading: true }));
-            // Query Firestore for cakeOrders belonging to the user that match the search query
-            const cakeOrdersRef = collection(db, 'cakeOrders');
-            const q = query(
-                cakeOrdersRef,
-                where("userId", "==", userId) // Ensure only user-owned cakeOrders are retrieved
-            );
-
-            const querySnapshot = await getDocs(q);
-            const filteredcakeOrders = querySnapshot.docs
-                .map(doc => ({ id: doc.id, ...doc.data() })) // Convert snapshot to array
-                .filter(cakeOrder =>
-                    cakeOrder.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    cakeOrder.content.toLowerCase().includes(searchQuery.toLowerCase())
-                ); // Client-side filtering
-
-            console.log('Filtered cakeOrders:', filteredcakeOrders); // Debugging log
-
-            // ✅ Correctly updating `cakeOrders`
-            cakeOrderStore.update(state => ({
-                ...state,
-                isLoading: false,
-                cakeOrders: filteredcakeOrders
-            }));
-
-            return filteredcakeOrders;
-
-        } catch (error) {
-            console.error('Error fetching cakeOrders:', error);
-            cakeOrderStore.update(state => ({ ...state, isLoading: false }));
-        }
+    {
+      name: "Message",
+      key: "message",
+      input: true,
+      placeholder: "e.g. Happy Birthday!",
+      maxlength: 30
+    },   
+    {
+      name: "Notes",
+      key: "notes",
+      input: true,
+      placeholder: "Anything we should know?",
+      maxlength: 100
     },
-    // Add a new cakeOrder
-
-    createcakeOrder: async (cakeOrderData, userId) => {
-        try {
-
-            const cakeOrdersRef = collection(db, 'cakeOrders');
-            const newcakeOrderRef = await addDoc(cakeOrdersRef, {
-                ...cakeOrderData,
-                userId,
-                cakeOrderCreatedAt: serverTimestamp(),
-                lastUpdated: serverTimestamp(),
-
-
-            });
-
-            await cakeOrderHandlers.getUsercakeOrders(userId);
-            return newcakeOrderRef.id;
-
-        } catch (error) {
-            console.error('Error creating cakeOrder:', error);
-            throw error;
-        }
+    {
+      name: "Contact",
+      key: "contact",
+      fields: [
+          { type: "tel", key: "phone", placeholder: "Please enter a phone number to contact here" },
+          { type: "checkbox", key: "consent", label: "I agree to receive calls and messages regarding my order" }
+      ]
     },
+  ];
+export const cakeOrderListStore = writable({
+    isLoading: false,
+    cakeOrders: [],
+    currentCakeOrder: null
+  });
 
-    // Upload cakeOrder images and update the cakeOrder with URLs
-    uploadImages: async (cakeOrderId, imageFiles) => {
-        try {
-            const storage = getStorage();
-            const imageUrls = await Promise.all(
-                imageFiles.map(async (file) => {
-                    const storageRef = ref(storage, `cakeOrder_images/${cakeOrderId}/${file.name}`);
-                    await uploadBytes(storageRef, file);
-                    return getDownloadURL(storageRef);
-                })
-            );
 
-            const cakeOrderRef = doc(db, 'cakeOrders', cakeOrderId);
-
-            await updateDoc(cakeOrderRef, { imageUrls });
-            return imageUrls;
-        } catch (error) {
-            console.error('Error uploading images:', error);
-            throw error;
-        }
-    },
-
-    uploadAudio: async (cakeOrderId, audioFile) => {
-        try {
-            const storage = getStorage();
-            const audioUrl = await Promise.all(
-                audioFile.map(async (file) => {
-                    const storageRef = ref(storage, `cakeOrder_audio/${cakeOrderId}/${audioFile.name}`);
-                    await uploadBytes(storageRef, audioFile);
-                    return getDownloadURL(storageRef);
-                })
-            );
-
-            // Update the cakeOrder in Firestore with the new audio URL
-            const cakeOrderRef = doc(db, 'cakeOrders', cakeOrderId);
-            await updateDoc(cakeOrderRef, { audioUrl });
-            return audioUrl;
-        } catch (error) {
-            console.error('Error uploading audio:', error);
-            throw error;
-        }
-    }
-    ,
-
-    // Update an existing cakeOrder
-    updatecakeOrder: async (cakeOrderId, cakeOrderData, userId) => {
-        try {
-            const cakeOrderRef = doc(db, 'cakeOrders', cakeOrderId);
-            const cakeOrderDoc = await getDoc(cakeOrderRef);
-            // console.log("cakeOrderdoc id:", cakeOrderDoc.data().userId)
-            // console.log("userid:", userId)
-            if (!cakeOrderDoc.exists() || cakeOrderDoc.data().userId !== userId) {
-                throw new Error("You do not have permission to update this cakeOrder.");
-            }
-            await updateDoc(cakeOrderRef, cakeOrderData);
-            await cakeOrderHandlers.getUsercakeOrders(userId);
-            return cakeOrderId;
-        } catch (error) {
-            console.error('Error updating cakeOrder:', error);
-            throw error;
-        }
-    },
-
-    // Delete a cakeOrder
-    deletecakeOrder: async (cakeOrderId, userId) => {
-        const confirmation = window.confirm('Are you sure you want to delete this cakeOrder?');
-        if (!confirmation) return;
-
-        try {
-            // Verify ownership and existence of the cakeOrder before deletion
-            const cakeOrderRef = doc(db, 'cakeOrders', cakeOrderId);
-            const cakeOrderDoc = await getDoc(cakeOrderRef);
-            if (!cakeOrderDoc.exists() || cakeOrderDoc.data().userId !== userId) {
-                throw new Error("You do not have permission to delete this cakeOrder.");
-            }
-
-            // Delete the cakeOrder document from the "cakeOrders" collection
-            await deleteDoc(cakeOrderRef);
-
-            // Remove the cakeOrder from the user's "mycakeOrders" array in Firestore
-            const userRef = doc(db, 'users', userId);
-            const userDoc = await getDoc(userRef);
-            if (userDoc.exists()) {
-                const userData = userDoc.data();
-                const updatedPersonalcakeOrders = userData.mycakeOrders.filter(cakeOrder => cakeOrder.id !== cakeOrderId);
-                await updateDoc(userRef, { mycakeOrders: updatedPersonalcakeOrders });
-
-                // If needed, update the user data locally (e.g., via your userHandlers)
-                await userHandlers.updateUser(userId, { mycakeOrders: updatedPersonalcakeOrders });
-            }
-
-            // Refresh the cakeOrderStore by re-fetching the user's cakeOrders from the database
-            await cakeOrderHandlers.getUsercakeOrders(userId);
-
-            alert('cakeOrder successfully deleted.');
-        } catch (error) {
-            console.error('Error deleting cakeOrder:', error);
-        }
-    },
-};
