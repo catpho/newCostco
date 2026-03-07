@@ -16,10 +16,12 @@ export const cakeOrderStore = writable({
     design:'',
     message:'',
     notes:'',
-    phone:999-999-9999,
+    phone:'',
     consent:false,
     address:'',
-    date:Date
+    date:null,
+    pickupTime:null,
+    membership:''
 });
 
 export const steps = [

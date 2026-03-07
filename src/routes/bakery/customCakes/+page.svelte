@@ -5,6 +5,7 @@
 	import { findStoresNearZip } from '$lib/utils/storeLocator.js';
 	import { getPickupTimeSlots } from '$lib/utils/pickupTimes.js';
 	import ProgressOrder from '$lib/components/progressOrder.svelte';
+	import {cakeOrderStore} from '$lib/stores/cakeOrderStore';
 
 	let activeStep = 'store';
 	let zipCode = '';
@@ -28,6 +29,12 @@
 			lastPickupDate = selectedPickupDate;
 			selectedPickupTime = null;
 		}
+	}
+	$:if (selectedPickupDate){
+		cakeOrderStore.update(order => ({
+			...order,
+			date:selectedPickupDate
+		}));
 	}
 
 	$: canAccessPickup = selectedStore !== null;
@@ -65,6 +72,11 @@
 	/** @param {{ store: { id: string; name: string; address: string; city: string; state: string; zip: string } }} item */
 	function selectStore(item) {
 		selectedStore = item.store;
+
+		cakeOrderStore.update (order => ({
+			...order,
+			address:selectedStore
+		}));
 	}
 
 	const steps = [
@@ -198,7 +210,15 @@
 									? 'bg-blue-600 text-white border-blue-600'
 									: 'bg-white'}"
 								class:selected={selectedPickupTime === slot}
-								on:click={() => (selectedPickupTime = slot)}
+								on:click={() => {
+									selectedPickupTime = slot;
+
+									cakeOrderStore.update(order => ({
+										...order,
+										date:selectedPickupDate,
+										pickupTime:slot
+									}));
+								}}
 							>
 								{formatTime(slot)}
 							</button>
